@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Training Schedule</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color:  #288F36;
+            --secondary-color: #1F497D;
+            --text-dark: #333;
+            --form-bg: #FADFD7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0 15px;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-form {
+            position: relative;
+        }
+
+        .search-form input {
+            border-radius: 20px;
+            padding-left: 40px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            color: #aaa;
+        }
+
+        .sign-in-btn {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 20px;
+            padding: 5px 15px;
+            transition: all 0.3s;
+        }
+
+        .sign-in-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 15px 0;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: #aaa;
+        }
+
+        .orange-box {
+            background-color: var(--primary-color);
+            padding: 30px;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brochure-img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .inquiry-intro {
+            margin-bottom: 25px;
+        }
+
+        .inquiry-form {
+            background-color: var(--form-bg);
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .required-label {
+            color: var(--primary-color);
+        }
+
+        .form-control {
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: none;
+        }
+
+        .form-select {
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .recaptcha-container {
+            margin: 20px 0;
+        }
+
+        .submit-btn {
+            background-color:  #288F36;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 12px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color:  #288F36;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #288F36;
+            border-color: #288F36;
+        }
+
+        .btn-outline-orange {
+            color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+        .btn-outline-orange:hover {
+            color: #fff;
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="d-flex align-items-center">
+
+                    <div class="">
+                        <a href="index.html" class="text-decoration-none d-block mx-auto mb-3 mx-lg-0"
+                            style="max-width: 200px;">
+                            <img src="/img/cropped-SAH-1-200x72.webp"
+                                alt="Logo" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">TRAINING</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color:  #288F36;">
+                            SERVICES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="publictraining.html">Public Training</a></li>
+                            <li><a class="dropdown-item" href="training.html
+                                ">In House Training</a></li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-primary py-2 px-4 me-2 shadow-sm rounded-pill" href="autocad.html">Autocad</a>
+                    <a href="registration2.php" class="btn btn-outline-warning py-2 px-4 shadow-sm rounded-pill">
+                        Join Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" style="color:   #288F36;">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" style="color: #aaa;">Services</a></li>
+                <li class="breadcrumb-item active" aria-current="page" style="color: #aaa;">In House Training</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Left Column - Orange Box -->
+            <div class="col-md-3">
+                <div class="orange-box">
+                    <img src="./img/img3.png"
+                        alt="Skill Appraiser Hub Training Schedule" class="brochure-img">
+                    <h3 class="text-white fw-bold mb-3">Skills Training Schedule 2025</h3>
+
+                </div>
+            </div>
+
+            <!-- Right Column - Form -->
+            <div class="col-md-9">
+                <h1 class="page-title">Private: In-House Training for Oil, Gas, Petrochemical & Energy Sectors</h1>
+
+                <div class="inquiry-intro">
+                    <p><strong>Send Us Your Inquiry.</strong> With deep expertise in petroleum engineering courses,
+                        conferences, and training, our consulting practice helps you optimize knowledge skill sets and
+                        network with fellow peers and professionals in order to stay ahead of competition.</p>
+                </div>
+
+                <div class="inquiry-form">
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="form-label">Full Name <span
+                                        class="required-label">*Required</span></label>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="form-label">Company <span class="required-label">*Required</span></label>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Corporate Email <span
+                                        class="required-label">*Required</span></label>
+                                <input type="email" class="form-control" placeholder="Type here...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Personal Email <span
+                                        class="required-label">*Required</span></label>
+                                <input type="email" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Job Title <span
+                                        class="required-label">*Required</span></label>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Country</label>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="form-label">How did you find us</label>
+                                <select class="form-select">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">Search Engine</option>
+                                    <option value="2">Social Media</option>
+                                    <option value="3">Referral</option>
+                                    <option value="4">Conference/Event</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="form-label">Subjects</label>
+                                <input type="text" class="form-control" placeholder="Type here...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="form-label">Messages</label>
+                                <textarea class="form-control" placeholder="Type here..."></textarea>
+                            </div>
+                        </div>
+
+
+
+                        <button onclick="window.location.href='registraion.php'" type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid  py-5 px-sm-3 px-lg-5" style="background-color: #1c2331; margin-top: 90px; border-top: 4px solid #17a2b8;">
+        <div class="row pt-4">
+            <!-- Column 1: Logo and About -->
+            <div class="col-lg-4 col-md-6 mb-5"> 
+                <div class="mb-4">
+                    <a href="index.html" class="d-inline-block">
+                        <img src="/img/cropped-SAH-1-200x72.webp" alt="Logo" class="img-fluid" style="max-width: 200px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));">
+                    </a>
+                </div>
+                <p class="text-light mb-4 pe-lg-5" style="font-size: 1.05rem; line-height: 1.6;">Study any topic, anytime. Explore thousands of courses for the lowest price ever!</p>
+                
+            </div>
+       
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="text-white mb-4" style="font-weight: 600; letter-spacing: 1px; position: relative; padding-bottom: 15px;">
+                    <span style="background: linear-gradient(90deg, #17a2b8, #20c997); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUICK LINKS</span>
+                    <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: #17a2b8;"></span>
+                </h5>
+                <div class="d-flex flex-column">
+                    <a class="text-light mb-3 d-flex align-items-center transition-link" href="index.html" style="text-decoration: none; transition: all 0.3s ease;">
+                        <i class="fas fa-chevron-right mr-2" style="font-size: 12px; color: #17a2b8; margin-right: 10px;"></i>Home
+                    </a>
+                    <a class="text-light mb-3 d-flex align-items-center transition-link" href="training.html" style="text-decoration: none; transition: all 0.3s ease;">
+                        <i class="fas fa-chevron-right mr-2" style="font-size: 12px; color: #17a2b8; margin-right: 10px;"></i>Training
+                    </a>
+                    <a class="text-light mb-3 d-flex align-items-center transition-link" href="publictraining.html" style="text-decoration: none; transition: all 0.3s ease;">
+                        <i class="fas fa-chevron-right mr-2" style="font-size: 12px; color: #17a2b8; margin-right: 10px;"></i>Public Training
+                    </a>
+                    <a class="text-light mb-3 d-flex align-items-center transition-link" href="training.html" style="text-decoration: none; transition: all 0.3s ease;">
+                        <i class="fas fa-chevron-right mr-2" style="font-size: 12px; color: #17a2b8; margin-right: 10px;"></i>House Training
+                    </a>
+                    <a class="text-light mb-3 d-flex align-items-center transition-link" href="autocad.html" style="text-decoration: none; transition: all 0.3s ease;">
+                        <i class="fas fa-chevron-right mr-2" style="font-size: 12px; color: #17a2b8; margin-right: 10px;"></i>Autocad
+                    </a>
+                </div>
+            </div>
+       
+            <!-- Column 3: Contact Info -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h5 class="text-white mb-4" style="font-weight: 600; letter-spacing: 1px; position: relative; padding-bottom: 15px;">
+                    <span style="background: linear-gradient(90deg, #17a2b8, #20c997); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">GET IN TOUCH</span>
+                    <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: #17a2b8;"></span>
+                </h5>
+                <div class="d-flex align-items-start mb-4">
+                    <div style="background: rgba(23, 162, 184, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <i class="fa fa-map-marker-alt text-info"></i>
+                    </div>
+                    <p class="text-light" >209, Fenkin Empire, Railway Station, beside Bhanushali Hospital, near Thane, Jambli Naka, Thane West, Thane, Maharashtra 400601</p>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <div style="background: rgba(23, 162, 184, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <i class="fa fa-phone-alt text-info"></i>
+                    </div>
+                    <a href="tel:+919152951515" class="text-light" style="text-decoration: none; transition: color 0.3s ease;">+91 91529 51515</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div style="background: rgba(23, 162, 184, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <i class="fa fa-envelope text-info"></i>
+                    </div>
+                    <a href="mailto:Info@skillstraining.tech" class="text-light" style="text-decoration: none; transition: color 0.3s ease;">Info@skillstraining.tech</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright Section -->
+      
+    </footer>
+
+
+   
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
